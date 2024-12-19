@@ -19,11 +19,14 @@ def compute_number_neighbors(paded_frame, index_line, index_column):
 
 def compute_next_frame(frame):
     paded_frame = numpy.pad(frame, 1, mode="constant") #zéro padding
+    
+    for index_line in range(1, len(paded_frame)-1):
+        for index_column in range(1, len(paded_frame[index_line])-1):
+            
 
 
-    return frame
+    return frame 
 
 while True:
-    
     print(frame)
     frame = compute_next_frame(frame)
