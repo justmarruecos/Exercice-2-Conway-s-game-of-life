@@ -1,5 +1,4 @@
 import numpy
-import time
 
 frame = numpy.array([[0, 0, 0, 0, 0, 0, 0],
                     [0, 0, 0, 0, 0, 0, 0],
@@ -31,8 +30,19 @@ def compute_next_frame(frame):
             else:  # Cellule déjà morte
                 if the_neighbors == 3:  # Deviens vivante
                     modifications.append((index_line-1, index_column-1, 1))
+    
+    for index_line, index_column, new_statut in modifications:
+        frame[index_line, index_column] = new_statut
+
     return frame 
 
 while True:
-    print(frame)
+    for index_line in range(len(frame)):
+        for index_column in range(len(frame[index_line])):
+            if frame[index_line][index_column] == 1:
+                print('#', end=' ')
+            else:
+                print('.', end=' ')
+    print()
+
     frame = compute_next_frame(frame)
