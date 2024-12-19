@@ -22,7 +22,7 @@ def compute_next_frame(frame):
     
     for index_line in range(1, len(paded_frame)-1):
         for index_column in range(1, len(paded_frame[index_line])-1):
-            
+            the_neighbors = compute_number_neighbors(paded_frame, index_line, index_column)
 
 
     return frame 
