@@ -24,7 +24,11 @@ def compute_next_frame(frame):
         for index_column in range(1, len(paded_frame[index_line])-1):
             the_neighbors = compute_number_neighbors(paded_frame, index_line, index_column)
 
-
+            if the_neighbors < 2 or the_neighbors > 3:
+                    frame[index_line-1, index_column-1] = 0
+            else:
+                if the_neighbors == 3:
+                    frame[index_line-1, index_column-1] = 1
     return frame 
 
 while True:
